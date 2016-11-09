@@ -3,7 +3,11 @@ package com.alangiu.sample.dns_injection_sample;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import org.openobservatory.measurement_kit.android.LoadLibraryUtils;
 import org.openobservatory.measurement_kit.android.ResourceUtils;
@@ -25,12 +29,18 @@ public class Home extends AppCompatActivity {
         initializeLibrary();
         copyInputFile();
 
+        final RecyclerView rv = (RecyclerView) findViewById(R.id.recycler_view);
+        final TestAdapter testAdapter = new TestAdapter(this, testList);
+        rv.setAdapter(testAdapter);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+
         // set up the fab button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 testList.add(run());
+                testAdapter.notifyDataSetChanged();
             }
         });
 
@@ -51,7 +61,6 @@ public class Home extends AppCompatActivity {
         DnsInjectionTest test = new DnsInjectionTest();
         Test testInfo = new Test();
         testInfo.id = test.set_verbosity(LogSeverity.INFO)
-                .use_logcat()
                 .set_options("backend", "8.8.8.1") // invalid dns
                 .set_options("dns/nameserver", "192.168.178.1:53")
                 .set_options("net/ca_bundle_path", ResourceUtils.get_ca_bundle_path(this))
