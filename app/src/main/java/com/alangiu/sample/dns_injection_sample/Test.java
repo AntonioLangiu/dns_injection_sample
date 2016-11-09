@@ -8,6 +8,7 @@ import org.openobservatory.measurement_kit.nettests.EntryCallback;
 import org.openobservatory.measurement_kit.nettests.TestCompleteCallback;
 import org.openobservatory.measurement_kit.nettests.TestListener;
 
+import java.util.Date;
 import java.util.LinkedList;
 
 public class Test {
@@ -19,6 +20,10 @@ public class Test {
     public String log = ""; // String to concat logs
 
     public LinkedList<String> entryList = new LinkedList<>();
+
+    public Test() {
+        this.timestamp = new Date().getTime();
+    }
 
 
     public void setRunning(Context ctx) {
