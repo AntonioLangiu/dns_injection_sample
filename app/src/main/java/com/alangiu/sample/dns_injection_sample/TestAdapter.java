@@ -49,6 +49,14 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
 
         holder.title.setText("Test "+test.id);
         holder.time.setText(DateFormat.format("dd/MM/yyyy hh:mm", test.timestamp).toString());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ctx, Details.class);
+                intent.putExtra("testId", test.id);
+                ctx.startActivity(intent);
+            }
+        });
 
         if (test.running) {
             holder.status.setText("running...");
