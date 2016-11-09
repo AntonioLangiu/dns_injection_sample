@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include layout="@layout/home_toolbar"
+        android:id="@+id/toolbar"/>
+
     <!-- the toolbar layout -->
     <FrameLayout
         android:layout_marginTop="@dimen/toolbar_size"
@@ -22,9 +25,6 @@
 
         </LinearLayout>
     </FrameLayout>
-
-    <include layout="@layout/home_toolbar"
-        android:id="@+id/toolbar"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
