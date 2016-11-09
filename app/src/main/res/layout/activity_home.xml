@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_home"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.alangiu.sample.dns_injection_sample.Home">
+    android:layout_height="match_parent">
 
-    <TextView
+    <!-- the toolbar layout -->
+    <FrameLayout
+        android:layout_marginTop="@dimen/toolbar_size"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <include layout="@layout/home_toolbar"
+        android:id="@+id/toolbar"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:src="@android:drawable/ic_media_play"
+        app:layout_anchor="@+id/toolbar"
+        app:layout_anchorGravity="bottom|right|end"/>
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>

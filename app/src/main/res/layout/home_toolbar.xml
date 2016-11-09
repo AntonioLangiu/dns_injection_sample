@@ -40,7 +40,7 @@
                 android:layout_gravity="center_horizontal"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:text="Lorem Ipsum"/>
+                android:text="Test application"/>
 
         </LinearLayout>
 
