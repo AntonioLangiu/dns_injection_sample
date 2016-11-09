@@ -3,4 +3,46 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Start toolbar -->
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_size"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        app:contentInsetStart="0dp"
+        android:theme="@style/ToolbarTheme">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/details_graph1"
+                />
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_left"
+                android:onClick="backPressed"
+                android:background="@android:color/transparent"/>
+            <TextView
+                android:id="@+id/details_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|top"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:textColor="@android:color/white"/>
+        </FrameLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <!-- End toolbar -->
 </LinearLayout>
