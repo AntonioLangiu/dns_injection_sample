@@ -87,11 +87,11 @@
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/details_recycler_view"
             android:padding="8dp"
             android:layout_below="@+id/details_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
         </android.support.v7.widget.RecyclerView>
     </RelativeLayout>
 

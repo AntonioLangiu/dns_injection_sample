@@ -19,18 +19,19 @@ import java.util.LinkedList;
 public class Home extends AppCompatActivity {
 
     private static final String INPUT_FILE = "hosts.txt";
-    public LinkedList<Test> testList = new LinkedList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final MyApplication myApplication = (MyApplication) getApplicationContext();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
 
         initializeLibrary();
         copyInputFile();
 
         final RecyclerView rv = (RecyclerView) findViewById(R.id.recycler_view);
-        final TestAdapter testAdapter = new TestAdapter(this, testList);
+        final TestAdapter testAdapter = new TestAdapter(this, myApplication.testList);
         rv.setAdapter(testAdapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
@@ -39,7 +40,7 @@ public class Home extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                testList.add(run());
+                myApplication.testList.add(run());
                 testAdapter.notifyDataSetChanged();
             }
         });
