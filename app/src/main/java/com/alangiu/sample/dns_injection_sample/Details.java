@@ -43,6 +43,7 @@ public class Details extends AppCompatActivity {
     private Integer injectedEntry = 0;
     private Integer notInjectedEntry = 0;
 
+    private TestListener testListener = null;
 
 
     @Override
@@ -53,6 +54,17 @@ public class Details extends AppCompatActivity {
         initializeData();
         setGraph();
         setRecyclerView();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        testListener.clear_all();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getData();
         setListener();
     }
@@ -121,7 +133,7 @@ public class Details extends AppCompatActivity {
     }
 
     private void setListener() {
-        final TestListener testListener = new TestListener(test.id, this);
+        testListener = new TestListener(test.id, this);
         testListener.on_entry(new EntryCallback() {
             @Override
             public void callback(String entry) {
@@ -146,6 +158,10 @@ public class Details extends AppCompatActivity {
             notInjectedEntry++;
             graph.appendData(new DataPoint(NOT_INJECTED, notInjectedEntry), false, 4);
         }
+    }
+
+    public void backPressed(View view) {
+        finish();
     }
 
     private class Entry {
