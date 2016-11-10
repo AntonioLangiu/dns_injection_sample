@@ -53,7 +53,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ctx, Details.class);
-                intent.putExtra("testId", test.id);
+                intent.putExtra("position", position);
                 ctx.startActivity(intent);
             }
         });
