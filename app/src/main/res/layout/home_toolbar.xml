@@ -29,8 +29,7 @@
                     android:textColor="@android:color/white"
                     android:text="Dns Injection "
                     android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:id="@+id/textView" />
+                    android:layout_centerHorizontal="true"/>
             </RelativeLayout>
 
             <TextView
